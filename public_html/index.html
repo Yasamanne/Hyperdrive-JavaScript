@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="https://rawgithub.com/mrdoob/three.js/master/build/three.js"></script>
+        <script src="http://threejs.org/examples/js/controls/OrbitControls.js"></script>
+        <script src="http://threejs.org/examples/js/renderers/CanvasRenderer.js"></script>
+        <script src="http://threejs.org/examples/js/renderers/Projector.js"></script>
+        <script src="js/plot.js"></script>
+        <script src="js/simulation.js"></script>
+    </head>
+    <body>
+        <script>
+            function main(){
+                
+                
+  
+                    var solution = search();
+                    console.log("Best Solution is: " + "<"+solution.evals+">,<"+solution.cost+">,<"+solution.point.x+">,<"+solution.point.y+">,<"+solution.point.z+">,<"+solution.point.T+">");
+                    var surface = simulate(solution.point.x, solution.point.y, solution.point.z, solution.point.T);
+                    plot(surface);
+                    
+                    //var string = pad("0111",5,"1",1);
+                    //console.log(string);
+                    
+                    
+            }
+        </script>
+        <div><button onclick="main();">Run Simulation</button></div>
+        <div>
+            <span id="printSpan"></span>
+        </div>
+    </body>
+</html>
